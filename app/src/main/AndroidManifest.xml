@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hye">
         <activity
+            android:name=".ContactList"
+            android:exported="false" />
+        <activity
+            android:name=".PhoneVerification"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
