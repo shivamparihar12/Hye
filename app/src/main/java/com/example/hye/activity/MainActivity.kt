@@ -1,8 +1,9 @@
-package com.example.hye
+package com.example.hye.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.hye.R
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.auth.FirebaseAuth
 
@@ -24,9 +25,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         fab.setOnClickListener {
-            val intent=Intent(this,ContactList::class.java)
+            val intent=Intent(this, ContactList::class.java)
             startActivity(intent)
         }
+
 
     }
 }

@@ -1,4 +1,4 @@
-package com.example.hye
+package com.example.hye.adapter
 
 import android.annotation.SuppressLint
 import android.database.Cursor

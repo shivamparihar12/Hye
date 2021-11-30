@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/user_list"
+    android:id="@+id/user_list_item"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -15,7 +15,7 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ic_launcher_background" />
+            android:src="@drawable/ic_baseline_person_24" />
     </androidx.cardview.widget.CardView>
 
     <TextView
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:hint="User Name"
+        android:hint="@string/user_name"
         android:layout_margin="5dp"
         android:textColor="@color/browser_actions_bg_grey"
         android:textSize="20sp" />

@@ -1,4 +1,4 @@
-package com.example.hye
+package com.example.hye.activity
 
 import android.Manifest
 import android.database.Cursor
@@ -13,15 +13,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.Toast
 
-import android.webkit.PermissionRequest
-import android.app.Activity
 import android.content.Context
 
 import androidx.core.app.ActivityCompat
 
 import android.os.Build
 import android.content.pm.PackageManager
-import androidx.annotation.NonNull
+import com.example.hye.adapter.ContactCursorAdapter
+import com.example.hye.R
 
 
 class ContactList : AppCompatActivity(), LoaderManager.LoaderCallbacks<Cursor> {
@@ -40,8 +39,11 @@ class ContactList : AppCompatActivity(), LoaderManager.LoaderCallbacks<Cursor> {
         recyclerView = findViewById(R.id.contact_RecyclerView)
         layoutManager = LinearLayoutManager(applicationContext)
         recyclerView.layoutManager = layoutManager
-        contactCursorAdapter = ContactCursorAdapter()
+        contactCursorAdapter = ContactCursorAdapter(this)
         recyclerView.adapter = contactCursorAdapter
+
+        //contactCursorAdapter.onc
+
     }
 
 
@@ -122,4 +124,5 @@ class ContactList : AppCompatActivity(), LoaderManager.LoaderCallbacks<Cursor> {
         }
         return true
     }
+
 }

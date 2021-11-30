@@ -3,6 +3,7 @@
     package="com.example.hye">
 
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,13 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hye">
         <activity
-            android:name=".ContactList"
+            android:name=".activity.ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".PhoneVerification"
+            android:name=".activity.ContactList"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.PhoneVerification"
+            android:exported="false" />
+        <activity
+            android:name=".activity.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

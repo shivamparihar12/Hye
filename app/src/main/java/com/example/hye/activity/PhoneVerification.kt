@@ -1,4 +1,4 @@
-package com.example.hye
+package com.example.hye.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Toast
+import com.example.hye.R
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
@@ -177,7 +178,7 @@ class PhoneVerification : AppCompatActivity() {
                     Log.d(TAG, "signInWithCredential:success")
 
                     val user = task.result?.user
-                    val intent=Intent(this,MainActivity::class.java)
+                    val intent=Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 } else {
                     // Sign in failed, display a message and update the UI
