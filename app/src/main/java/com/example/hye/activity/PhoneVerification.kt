@@ -41,6 +41,7 @@ class PhoneVerification : AppCompatActivity() {
 
         mAuth = FirebaseAuth.getInstance()
 
+
         getOtpLayout = findViewById(R.id.getOtp_layout)
         verifyOtpLayout = findViewById(R.id.verifyOtp_layout)
         PhoneNoView = findViewById(R.id.phoneNo)
@@ -49,6 +50,11 @@ class PhoneVerification : AppCompatActivity() {
         otp=findViewById(R.id.otp)
 
 
+
+        if (mAuth.currentUser==null) run {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
         if (otpFlag == 0) {
             verifyOtpLayout.isEnabled = false
@@ -178,6 +184,7 @@ class PhoneVerification : AppCompatActivity() {
                     Log.d(TAG, "signInWithCredential:success")
 
                     val user = task.result?.user
+
                     val intent=Intent(this, MainActivity::class.java)
                     startActivity(intent)
                 } else {

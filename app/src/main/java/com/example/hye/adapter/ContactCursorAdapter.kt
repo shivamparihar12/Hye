@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hye.R
 import com.example.hye.activity.ChatActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class ContactCursorAdapter(context: Context) : BaseCursorAdapter<ContactCursorAdapter.ContactViewHolder>(),
     View.OnClickListener {
@@ -27,6 +28,7 @@ class ContactCursorAdapter(context: Context) : BaseCursorAdapter<ContactCursorAd
         holder.userName.setOnClickListener {
             val i = Intent(context, ChatActivity::class.java)
             i.putExtra("username",contactName)
+            i.putExtra("uid",FirebaseAuth.getInstance().uid)
             context.startActivity(i)
         }
 

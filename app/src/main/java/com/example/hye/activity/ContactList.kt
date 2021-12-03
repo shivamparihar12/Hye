@@ -19,6 +19,7 @@ import androidx.core.app.ActivityCompat
 
 import android.os.Build
 import android.content.pm.PackageManager
+import android.util.Log
 import com.example.hye.adapter.ContactCursorAdapter
 import com.example.hye.R
 
@@ -30,6 +31,7 @@ class ContactList : AppCompatActivity(), LoaderManager.LoaderCallbacks<Cursor> {
     lateinit var contactCursorAdapter: ContactCursorAdapter
     lateinit var layoutManager: LinearLayoutManager
     private val CONTACTS_LOADER_ID = 1
+    private lateinit var cursorLoader: CursorLoader
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +44,7 @@ class ContactList : AppCompatActivity(), LoaderManager.LoaderCallbacks<Cursor> {
         contactCursorAdapter = ContactCursorAdapter(this)
         recyclerView.adapter = contactCursorAdapter
 
+        matchUser()
         //contactCursorAdapter.onc
 
     }
@@ -54,7 +57,7 @@ class ContactList : AppCompatActivity(), LoaderManager.LoaderCallbacks<Cursor> {
         val selectionArgs = arrayOf<String>()
         val sortOder = null
 
-        return CursorLoader(
+        cursorLoader=CursorLoader(
             applicationContext,
             uri,
             projection,
@@ -62,6 +65,8 @@ class ContactList : AppCompatActivity(), LoaderManager.LoaderCallbacks<Cursor> {
             selectionArgs,
             sortOder
         )
+
+        return cursorLoader
     }
 
     override fun onLoadFinished(loader: Loader<Cursor>, data: Cursor?) {
@@ -125,4 +130,7 @@ class ContactList : AppCompatActivity(), LoaderManager.LoaderCallbacks<Cursor> {
         return true
     }
 
+    fun matchUser(){
+        Log.d("user", cursorLoader.projection.toString())
+    }
 }

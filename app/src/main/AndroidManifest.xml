@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hye">
         <activity
+            android:name=".activity.Build_ProfileActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.ChatActivity"
             android:exported="false" />
         <activity
@@ -19,15 +22,17 @@
             android:exported="false" />
         <activity
             android:name=".activity.PhoneVerification"
-            android:exported="false" />
-        <activity
-            android:name=".activity.MainActivity"
-            android:exported="true">
+            android:exported="false" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true">
+
         </activity>
     </application>
 
