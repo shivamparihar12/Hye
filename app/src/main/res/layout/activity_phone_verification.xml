@@ -28,6 +28,7 @@
         <EditText
             android:id="@+id/phoneNo"
             android:gravity="center"
+            android:inputType="number"
             android:layout_width="match_parent"
             android:maxLength="10"
             android:layout_height="wrap_content"
@@ -59,8 +60,9 @@
 
         <EditText
             android:id="@+id/otp"
+            android:gravity="center"
             android:inputType="number"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="10dp" />

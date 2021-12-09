@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hye">
         <activity
-            android:name=".activity.Build_ProfileActivity"
+            android:name=".activity.BuildProfileActivity"
             android:exported="false" />
         <activity
             android:name=".activity.ChatActivity"
@@ -22,7 +22,7 @@
             android:exported="false" />
         <activity
             android:name=".activity.PhoneVerification"
-            android:exported="false" >
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,7 +31,7 @@
         </activity>
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true">
+            android:exported="false">
 
         </activity>
     </application>

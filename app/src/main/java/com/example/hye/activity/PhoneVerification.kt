@@ -13,6 +13,7 @@ import com.example.hye.R
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseTooManyRequestsException
 import com.google.firebase.auth.*
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.concurrent.TimeUnit
 
 class PhoneVerification : AppCompatActivity() {
@@ -51,7 +52,7 @@ class PhoneVerification : AppCompatActivity() {
 
 
 
-        if (mAuth.currentUser==null) run {
+        if (mAuth.currentUser!=null) run {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
@@ -63,7 +64,7 @@ class PhoneVerification : AppCompatActivity() {
 
 
         getOtp.setOnClickListener {
-            phoneNo = "+91"+PhoneNoView.text.toString()
+            phoneNo = "+1"+PhoneNoView.text.toString()
             if (phoneNo.isEmpty()) {
                 Toast.makeText(this, "Please Enter Mobile no", Toast.LENGTH_SHORT).show()
             } else {
@@ -183,10 +184,22 @@ class PhoneVerification : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
 
-                    val user = task.result?.user
-
-                    val intent=Intent(this, MainActivity::class.java)
-                    startActivity(intent)
+                    val user = task.result?.user?.uid.toString()
+                    val hashMap:HashMap<Any,String> = HashMap()
+                    hashMap["userID"]= user
+                    val docRef=FirebaseFirestore.getInstance().collection("Users")
+                        .document(user + "userDetail")
+                    docRef.set(hashMap).addOnSuccessListener {
+                        val intent=Intent(this, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                        .addOnFailureListener {
+                            Toast.makeText(this, it.message, Toast.LENGTH_SHORT).show()
+                        }
+//                    val intent=Intent(this, MainActivity::class.java)
+//                    startActivity(intent)
+//                    finish()
                 } else {
                     // Sign in failed, display a message and update the UI
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
@@ -201,4 +214,8 @@ class PhoneVerification : AppCompatActivity() {
     private fun updateUI(currentUser: FirebaseUser? = mAuth.currentUser) {
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        finish()
+    }
 }

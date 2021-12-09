@@ -4,14 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#97E481"
-    tools:context=".activity.Build_ProfileActivity">
+    tools:context=".activity.BuildProfileActivity">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:cardCornerRadius="40dp"
+        app:cardCornerRadius="70dp"
         app:layout_constraintBottom_toTopOf="@+id/cardView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +38,6 @@
         android:id="@+id/cardView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#B7DC8E"
         android:padding="10dp"
         app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,19 +56,30 @@
             <EditText
                 android:id="@+id/username"
                 android:layout_width="200dp"
-                android:layout_height="20dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:autofillHints="UserName"
                 android:hint="UserName"
                 android:textSize="18sp" />
 
             <Button
+                android:id="@+id/save_profile"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="Save" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.progressindicator.CircularProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:indicatorColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 
